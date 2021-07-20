@@ -25,12 +25,12 @@ class Publisher(publisher.Publisher):
         topics = ['`{}`'.format(topic) for topic in sorted(self.consumer.subscription())]
         return banner + ' on topics {}'.format(', '.join(topics))
 
-    def _serve(self, app, **conf):
+    def _serve(self, app, services_service, **conf):
         super(Publisher, self)._serve(app)
 
         try:
             for msg in self.consumer:
-                self.start_handle_request(app, msg=msg)
+                self.start_handle_request(app, services_service, msg=msg)
         except KeyboardInterrupt:
             self.consumer.close()
 
