@@ -1,0 +1,2 @@
+[nagare.publishers]
+kafka = nagare.publishers.kafka_publisher:Publisher

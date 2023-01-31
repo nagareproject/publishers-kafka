@@ -1,5 +1,5 @@
 # --
-# Copyright (c) 2008-2022 Net-ng.
+# Copyright (c) 2008-2023 Net-ng.
 # All rights reserved.
 #
 # This software is licensed under the BSD License, as described in
@@ -7,13 +7,13 @@
 # this distribution.
 # --
 
-"""The Kafka publisher"""
+"""The Kafka publisher."""
 
 from nagare.server import publisher
 
 
 class Publisher(publisher.Publisher):
-    """The Kafka publisher"""
+    """The Kafka publisher."""
 
     def __init__(self, name, dist, kafka_consumer_service, **config):
         super(Publisher, self).__init__(name, dist, **config)
