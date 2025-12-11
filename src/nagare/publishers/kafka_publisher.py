@@ -1,5 +1,5 @@
 # --
-# Copyright (c) 2008-2024 Net-ng.
+# Copyright (c) 2014-2025 Net-ng.
 # All rights reserved.
 #
 # This software is licensed under the BSD License, as described in
@@ -16,17 +16,17 @@ class Publisher(publisher.Publisher):
     """The Kafka publisher."""
 
     def __init__(self, name, dist, kafka_consumer_service, **config):
-        super(Publisher, self).__init__(name, dist, **config)
+        super().__init__(name, dist, **config)
         self.consumer = kafka_consumer_service
 
     def generate_banner(self):
-        banner = super(Publisher, self).generate_banner()
+        banner = super().generate_banner()
 
         topics = ['`{}`'.format(topic) for topic in sorted(self.consumer.subscription())]
         return banner + ' on topics {}'.format(', '.join(topics))
 
     def _serve(self, app, services_service, **conf):
-        super(Publisher, self)._serve(app)
+        super()._serve(app)
 
         try:
             for msg in self.consumer:
